@@ -5,21 +5,19 @@ import { getIntentStatus } from "../relay-api.js";
 export function register(server: McpServer) {
   server.tool(
     "get_transaction_status",
-    `Check the status of a Relay bridge or swap transaction. Use the requestId returned from execute_bridge.
+    `Check the status of a Relay bridge or swap transaction by requestId.
 
 Statuses:
-  waiting  — The origin chain transaction has been broadcast but not yet confirmed on-chain. Just wait — no further action needed.
+  waiting  — The origin chain transaction has been broadcast but not yet confirmed on-chain.
   pending  — The relay network has picked up the request and is processing the cross-chain transfer.
   success  — Complete. Funds have arrived on the destination chain.
   failure  — The transaction failed.
-  refund   — The transaction was refunded to the sender.
-
-IMPORTANT: After the wallet "execute" action completes all steps (approval + deposit), Relay handles the cross-chain delivery automatically. Poll every 5-10 seconds until success or failure. The user does NOT need to do anything else after execution completes — just wait.`,
+  refund   — The transaction was refunded to the sender.`,
     {
       requestId: z
         .string()
         .describe(
-          "The request ID returned from execute_bridge or from a quote's steps[].requestId."
+          "The Relay request ID for the transaction to check."
         ),
     },
     async ({ requestId }) => {

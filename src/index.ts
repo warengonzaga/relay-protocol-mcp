@@ -6,11 +6,9 @@ import { register as registerGetSupportedTokens } from "./tools/get-supported-to
 import { register as registerGetBridgeQuote } from "./tools/get-bridge-quote.js";
 import { register as registerGetSwapQuote } from "./tools/get-swap-quote.js";
 import { register as registerEstimateFees } from "./tools/estimate-fees.js";
-import { register as registerExecuteBridge } from "./tools/execute-bridge.js";
 import { register as registerGetTransactionStatus } from "./tools/get-transaction-status.js";
 import { register as registerGetTransactionHistory } from "./tools/get-transaction-history.js";
 import { register as registerGetRelayAppUrl } from "./tools/get-relay-app-url.js";
-import { register as registerWallet } from "./tools/wallet.js";
 
 const server = new McpServer({
   name: "relay-mcp",
@@ -22,11 +20,9 @@ registerGetSupportedTokens(server);
 registerGetBridgeQuote(server);
 registerGetSwapQuote(server);
 registerEstimateFees(server);
-registerExecuteBridge(server);
 registerGetTransactionStatus(server);
 registerGetTransactionHistory(server);
 registerGetRelayAppUrl(server);
-registerWallet(server);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);

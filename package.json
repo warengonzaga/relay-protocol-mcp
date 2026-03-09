@@ -1,20 +1,37 @@
 {
   "name": "@relayprotocol/relay-mcp",
   "version": "0.1.0",
-  "description": "Hosted MCP Server for Relay Protocol — cross-chain bridge and swap tools for AI agents",
+  "description": "MCP server for Relay Protocol — cross-chain bridge and swap quotes, token search, and fee estimation for AI agents",
   "type": "module",
   "license": "MIT",
   "bin": {
     "relay-mcp": "dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reservoirprotocol/relay-mcp.git"
+  },
+  "homepage": "https://relay.link",
+  "keywords": [
+    "mcp",
+    "relay",
+    "bridge",
+    "swap",
+    "cross-chain",
+    "ai",
+    "agent"
+  ],
   "scripts": {
     "build": "node build.mjs",
     "start": "node dist/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.10.1",
-    "@walletconnect/sign-client": "^2.17.0",
     "zod": "^3.24.3"
   },
   "devDependencies": {

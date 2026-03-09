@@ -67,10 +67,10 @@ export function register(server: McpServer) {
         fromCurrency: originCurrency,
         toCurrency: destinationCurrency,
         amount: details.currencyIn.amountFormatted,
-        toAddress: recipient || sender,
+        toAddress: recipient,
       });
 
-      const content: Array<Record<string, unknown>> = [
+      const content: Array<{ type: "text"; text: string } | { type: "resource_link"; uri: string; name: string; description: string; mimeType: string }> = [
         { type: "text", text: summary },
         {
           type: "text",
