@@ -1,0 +1,37 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.reservoirprotocol/relay-mcp",
+  "description": "MCP server for Relay Protocol — cross-chain bridge and swap quotes, token search, fee estimation, and transaction tracking for AI agents.",
+  "title": "Relay",
+  "websiteUrl": "https://relay.link",
+  "repository": {
+    "url": "https://github.com/reservoirprotocol/relay-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@relayprotocol/relay-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "RELAY_API_KEY",
+          "description": "Optional API key for higher rate limits",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "RELAY_API_URL",
+          "description": "Relay API base URL (default: https://api.relay.link)",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}
